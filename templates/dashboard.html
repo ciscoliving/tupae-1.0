@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<h3>Add Brand</h3>
+<form method="post" action="/brand">
+    <input name="name" placeholder="Brand name">
+    <button type="submit">Add</button>
+</form>
+<h3>Add Account</h3>
+<form method="post" action="/account">
+    <input name="brand" placeholder="Brand">
+    <input name="platform" placeholder="Platform">
+    <input name="username" placeholder="Account name">
+    <button type="submit">Add</button>
+</form>
+<h3>Schedule Post</h3>
+<form method="post" action="/schedule">
+    <input name="brand" placeholder="Brand">
+    <input name="platform" placeholder="Platform">
+    <input name="message" placeholder="Message">
+    <input name="time" placeholder="YYYY-MM-DD HH:MM">
+    <button type="submit">Schedule</button>
+</form>
+<h3>Scheduled Posts</h3>
+<ul>
+{% for p in posts %}
+    <li>{{ p.brand }} -> {{ p.platform }} : {{ p.message }} at {{ p.time }} {% if p.posted %}(posted){% endif %}</li>
+{% endfor %}
+</ul>
+{% endblock %}

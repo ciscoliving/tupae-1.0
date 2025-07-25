@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Login</h2>
+<form method="post">
+    <input name="username" placeholder="Username">
+    <input name="password" placeholder="Password" type="password">
+    <button type="submit">Login</button>
+</form>
+<p>or <a href="{{ url_for('signup') }}">Sign up</a></p>
+{% endblock %}

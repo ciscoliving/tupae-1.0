@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Manager</title>
+</head>
+<body>
+    {% if session.user %}
+    <p>Logged in as {{ session.user }} | <a href="{{ url_for('logout') }}">Logout</a></p>
+    {% endif %}
+    {% block content %}{% endblock %}
+</body>
+</html>
